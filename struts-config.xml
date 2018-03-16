@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!-- <!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">  -->
+
+<struts-config>
+    <form-beans>
+        <form-bean name="LoginForm" type="com.struts.form.LoginForm"/>
+    </form-beans>
+    
+     <form-beans>
+    	<form-bean name="SignUpForm" type = "com.struts.form.SignUpForm"></form-bean>
+    </form-beans> 
+    
+    <form-beans>
+    	<form-bean name = "ProfileUpdate" type = "com.struts.form.UpdateForm"> </form-bean>
+    </form-beans>
+	    
+    <form-beans>
+    	<form-bean name ="deleteAccount" type= "com.struts.form.DeleteForm"></form-bean>
+    </form-beans>
+    
+    <!-- <form-beans>
+    		<form-bean name = "logout" type = "com.struts.form.LogOutForm"></form-bean>
+    </form-beans> -->
+
+
+    <action-mappings>
+        <action name="LoginForm" path="/Login" scope="session" type="com.struts.action.LoginAction" >
+            <forward name="success" path="/success.jsp" />
+            <forward name="failure" path="/failure.jsp" />
+        </action>
+    </action-mappings>
+    
+    <action-mappings>
+    		<action name ="SignUpForm" path="/SignUp" type = "com.struts.action.SignUpAction">
+    		<forward name="success" path="/signupSuccess.jsp" />
+            <forward name="failure" path="/failure.jsp" />
+            </action>
+    </action-mappings>
+    
+    <action-mappings>
+    		<action name="ProfileUpdate" path="/myProfile" type="com.struts.action.UpdateAction">
+    		<forward name="success" path="/updateSuccess.jsp" />
+    		</action>
+    </action-mappings>
+    
+    <action-mappings>
+    	<action name="deleteAccount" path="/deleteProfile" type="com.struts.action.DeleteAction">
+    	<forward name="success" path ="/deleteSuccess.jsp"/>
+       	</action>
+    </action-mappings>
+    
+  <!--   <action-mappings>
+    <action name="LoginForm" path="/login" type = "com.struts.action.LogOutAction">
+    <forward name="success" path ="/login.jsp"/>
+    </action>
+    </action-mappings> -->
+    
+    <message-resources parameter="com/jwt/struts/action/ApplicationResource" /> 
+    
+
+</struts-config>
